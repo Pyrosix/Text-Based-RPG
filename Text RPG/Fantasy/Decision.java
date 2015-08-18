@@ -39,8 +39,8 @@ public class Decision {
                 System.out.println("Can't you even choose one of the choices your given?");
                 System.out.println("Just give up you maggot unable to follow directions");
                 System.out.println("Oh and here's a little something for you");
-                System.out.println("GAME OVER");
             }
+            System.out.println("GAME OVER");
         }
     }
 }
