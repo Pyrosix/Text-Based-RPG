@@ -1,10 +1,10 @@
 package Underworld.Demon;
 
-import java.util.Scanner;
+import Fantasy.Story;
 
-class WeaponRecovery {
-    public WeaponRecovery() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println();
+class WeaponRecovery implements Story {
+    @Override
+    public void play() {
+
     }
 }

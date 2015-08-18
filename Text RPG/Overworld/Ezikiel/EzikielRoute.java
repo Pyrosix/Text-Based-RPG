@@ -1,7 +1,10 @@
 package Overworld.Ezikiel;
 
-public class EzikielRoute {
-    public EzikielRoute() {
+import Fantasy.Story;
+
+public class EzikielRoute implements Story {
+    @Override
+    public void play() {
 
     }
 }

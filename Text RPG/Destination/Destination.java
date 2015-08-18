@@ -1,7 +1,10 @@
 package Destination;
 
-public class Destination {
-    public Destination() {
+import Fantasy.Story;
+
+public class Destination implements Story {
+    @Override
+    public void play() {
 
     }
 }

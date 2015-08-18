@@ -1,12 +1,13 @@
 package Underworld.Human;
 
 
-import java.util.Scanner;
+import Fantasy.Choice;
+import Fantasy.Decision;
+import Fantasy.Story;
 
-public class HumanRoute {
-
-    public HumanRoute() {
-        Scanner scanner = new Scanner(System.in);
+public class HumanRoute implements Story {
+    @Override
+    public void play() {
         System.out.println();
         System.out.println("Day 1");
         System.out.println();
@@ -19,29 +20,14 @@ public class HumanRoute {
         System.out.println("what looks to be the shopkeeper is sitting on a stool, leaning against the case");
         System.out.println("The shopkeeper stands up as you enter and walks over to you asking if he can help you with anything");
         System.out.println("Can he?");
-        System.out.print("Enter Choice :: ");
-        String decision = scanner.nextLine();
-        System.out.println("~~~~~~~~");
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        if (decision.toLowerCase().equals("yes")) {
-            System.out.println("The shopkeeper shows you a set of armor and a sword that he thinks would fit you well");
-            System.out.println("He says there's something about you that he likes and decides to give it to you for free");
-            System.out.println("You thank him and take the armor and the sword, changing before walking out, the sword strapped to your waist");
 
-            new AfterArmor();
-        } else if (decision.toLowerCase().equals("no")) {
-            System.out.println("The shopkeeper says to come talk to him when you are done looking around");
-            System.out.println("You look around for a bit but can't figure out what's good and walk out without buying anything");
-            System.out.println("Without any protection you stick out in the city and become a target for a robbery ");
-            System.out.println("They beat you to death and take what little you have, leaving your dead body to rot in an alleyway...");
-            System.out.println("GAME OVER");
-        } else {
-            System.out.println("Can't you even choose one of the choices your given?");
-            System.out.println("Just give up you worthless indecisive maggot unable to make simple choices");
-            System.out.println("Oh and here's a little something for you");
-            System.out.println("GAME OVER");
-        }
+        Choice yes = new Choice("yes", new AfterArmor(), "The shopkeeper shows you a set of armor and a sword that he thinks would fit you well\n" +
+                "He says there's something about you that he likes and decides to give it to you for free\n" +
+                "You thank him and take the armor and the sword, changing before walking out, the sword strapped to your waist");
+        Choice no = new Choice("no", "The shopkeeper says to come talk to him when you are done looking around\n" +
+                "You look around for a bit but can't figure out what's good and walk out without buying anything\n" +
+                "Without any protection you stick out in the city and become a target for a robbery\n" +
+                "They beat you to death and take what little you have, leaving your dead body to rot in an alleyway...");
+        new Decision(new Choice[]{yes, no});
     }
-}   
+}

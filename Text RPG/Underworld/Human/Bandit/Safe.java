@@ -1,10 +1,12 @@
 package Underworld.Human.Bandit;
 
-import java.util.Scanner;
+import Fantasy.Choice;
+import Fantasy.Decision;
+import Fantasy.Story;
 
-public class Safe {
-    public Safe() {
-        Scanner scanner = new Scanner(System.in);
+public class Safe implements Story {
+    @Override
+    public void play() {
         System.out.println("you decide to take the safe route and a day later half way to the monster hunting school you are suddenly attacked by bandits");
         System.out.println("Not having any fighting experience what so ever, you simply throw a half-assed punch");
         System.out.println("The bandits seeing you can't fight laugh and easily knocking you out");
@@ -23,26 +25,15 @@ public class Safe {
         System.out.println("The bandit leader gives you two choices die in the deathworm pits or join her bandits and learn their ways");
         System.out.println("Will you join them....?");
         System.out.println("Or will you die...?");
-        System.out.print("Enter Choice :: ");
-        String decision = scanner.nextLine();
-        System.out.println("~~~~~~~~");
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        if (decision.toLowerCase().equals("join")) {
-            new Bandit();
-        } else if (decision.toLowerCase().equals("die")) {
-            System.out.println("you refuse her offer and say you'd rather die than be a stupid bandit");
-            System.out.println("you are then harshly punched by the bandit leader and dragged out by the two armed bandits");
-            System.out.println("Passing through long stony corridors you are suddenly stopped and stood up facing a small door");
-            System.out.println("the little door opens seemingly on its own and you are thrown full force into a gulping darkness and for moments you feel no ground");
-            System.out.println("moments later you hear ungodly screams that you soon realize our yours as you are being torn apart limb by fragile limb");
-            System.out.println("your life fades from your torn and eaten body left lifeless and cold as dinner meat....");
-            System.out.println("GAME OVER");
-        } else {
-            System.out.println("Congrats you're dead how do you feel?");
-            System.out.println("GAME OVER");
-        }
+
+        Choice join = new Choice("join", new Bandit());
+        Choice die = new Choice("die", "You refuse her offer and say you'd rather die than be a stupid bandit\n" +
+                "You are then harshly punched by the bandit leader and dragged out by the two armed bandits\n" +
+                "Passing through long stony corridors you are suddenly stopped and stood up facing a small door\n" +
+                "The little door opens seemingly on its own and you are thrown full force into a gulping darkness and for moments you feel no ground\n" +
+                "Moments later you hear ungodly screams that you soon realize our yours as you are being torn apart limb by fragile limb\n" +
+                "Your life fades from your torn and eaten body left lifeless and cold as dinner meat....");
+        new Decision(new Choice[]{join, die});
     }
 }
 

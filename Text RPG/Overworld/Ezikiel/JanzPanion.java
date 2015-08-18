@@ -1,7 +1,10 @@
 package Overworld.Ezikiel;
 
-class JanzPanion {
-    public JanzPanion() {
+import Fantasy.Story;
+
+class JanzPanion implements Story {
+    @Override
+    public void play() {
 
     }
 }

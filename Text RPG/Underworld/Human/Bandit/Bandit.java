@@ -1,7 +1,10 @@
 package Underworld.Human.Bandit;
 
-class Bandit {
-    public Bandit() {
+import Fantasy.Story;
+
+class Bandit implements Story {
+    @Override
+    public void play() {
         System.out.println("When you open your eyes you are laying down in a surprisingly soft bed...");
         System.out.println("you slide your feet off the bed letting them touch the cold sand covered stone floor");
         System.out.println("Suddenly your eyes dart to the door as you recall what happened the other day and realize where you are");

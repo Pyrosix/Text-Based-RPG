@@ -1,15 +1,16 @@
 package Underworld.Human.Monster.WithPet;
 
 import Destination.Destination;
+import Fantasy.Choice;
+import Fantasy.Decision;
 import Fantasy.Player;
+import Fantasy.Story;
 import Underworld.Human.Monster.WithPet.Forest2.Forest2;
 import Underworld.Human.Monster.WithPet.Mountain.Mountain;
 
-import java.util.Scanner;
-
-class FirstMission {
-    public FirstMission() {
-        Scanner scanner = new Scanner(System.in);
+class FirstMission implements Story {
+    @Override
+    public void play() {
         System.out.println("El smiles mischievously and smacks you on the back, proud that you've decided to take on your first mission");
         System.out.println("He reaches into his jacket and pulls out a black box wrapped in chains and giving off a profuse smell");
         System.out.println("You take it from him, breathing out your mouth as you hold the box at arms length to keep away the stench");
@@ -40,28 +41,14 @@ class FirstMission {
         System.out.println("El tells you you have two routes you can take to get to the elder. one leads back into the FOREST but is guaranteed to get you to the elder within the three day time limit");
         System.out.println("Or you can travel through the MOUNTAIN Path which is safer, but is known for bandit encounters");
         System.out.println("Which way would you like to go?");
-        System.out.println("Enter Choice:: ");
-        String decision = scanner.nextLine();
-        System.out.println("~~~~~~~~");
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        if (decision.toLowerCase().equals("forest")) {
-            // I don't like this
-            new Forest2();
-        } else if (decision.toLowerCase().equals("mountain")) {
-            new Mountain();
-        } else if (decision.toLowerCase().equals("neither")) {
-            System.out.println("You shake your head at EL and tell him you have a better idea");
-            System.out.println("You call out to " + Player.petName + " who soars down from the skies and lands beside you eager to help");
-            System.out.println("You secure the bag containing your livelihood and climb aboard the Draconiz");
-            System.out.println("You shout at " + Player.petName + " to fly, and take off into the blue sky, El watching from below with an approving smile...");
-            System.out.println();
-            System.out.println();
-            System.out.println("DAY 7");
-            System.out.println();
-            System.out.println();
-            new Destination();
-        }
+
+        Choice forest = new Choice("forest", new Forest2());
+        Choice mountain = new Choice("mountain", new Mountain());
+        Choice neither = new Choice("neither", new Destination(), "You shake your head at EL and tell him you have a better idea\n" +
+                "You call out to " + Player.petName + " who soars down from the skies and lands beside you eager to help\n" +
+                "You secure the bag containing your livelihood and climb aboard the Draconiz\n" +
+                "You shout at " + Player.petName + " to fly, and take off into the blue sky, El watching from below with an approving smile...\n\n\n" +
+                "DAY 7\n\n");
+        new Decision(new Choice[]{forest, mountain, neither});
     }
 }

@@ -1,11 +1,10 @@
 package Underworld.Human.Monster.WithPet.Forest2;
 
-import java.util.Scanner;
+import Fantasy.Story;
 
-public class Forest2 {
-    public Forest2() {
-        Scanner scanner = new Scanner(System.in);
+public class Forest2 implements Story {
+    @Override
+    public void play() {
         System.out.println("Strapped with everything you need on your journey, you head for the forest, back into the unknown on the first day of your journey");
-        System.out.println();
     }
 }

@@ -1,10 +1,12 @@
 package Underworld.Human.Monster.withoutpet;
 
-import java.util.Scanner;
+import Fantasy.Choice;
+import Fantasy.Decision;
+import Fantasy.Story;
 
-public class WithoutPet {
-    public WithoutPet() {
-        Scanner scanner = new Scanner(System.in);
+public class WithoutPet implements Story {
+    @Override
+    public void play() {
         System.out.println("Feeling sorry for the creature but not wanting to take a chance at getting hurt, you leave it alone to fend for itself");
         System.out.println("You make your way back to your room where you fall onto your bed with a sigh");
         System.out.println("You hope someone went out and help the bird, a small sense of guilt present in your stomach as you fall asleep");
@@ -20,24 +22,14 @@ public class WithoutPet {
         System.out.println("Since it is your first mission, he tells you that you'll be taking on minion class by the name of abgora");
         System.out.println("Before he tells you anymore details, he asks if your willing to take on the quest");
         System.out.println("Are you?");
-        System.out.print("Enter Choice :: ");
-        String decision = scanner.nextLine();
-        System.out.println("~~~~~~~~");
-        if (decision.toLowerCase().equals("yes")) {
-            new FirstMission2();
-        } else if (decision.toLowerCase().equals("no")) {
-            System.out.println("You tell him that you don't feel like you've trained enough and you don't know if you'll be able to make it");
-            System.out.println("El'Tuin laughs and tells you it's fine");
-            System.out.println("He says that he's been training you harden than any of the other students because you showed potential");
-            System.out.println("But if that's how you feel then he'll train you even harden till you fell like you are");
-            System.out.println("He asks you again a time after and you agree");
-            new FirstMission2();
-        } else {
-            System.out.println("Can't you even choose one of the choices your given?");
-            System.out.println("Just give up you maggot unable to follow directions");
-            System.out.println("Oh and here's a little something for you");
-            System.out.println("GAME OVER");
-        }
+
+        Choice yes = new Choice("yes", new FirstMission2());
+        Choice no = new Choice("no", new FirstMission2(), "You tell him that you don't feel like you've trained enough and you don't know if you'll be able to make it\n" +
+                "El'Tuin laughs and tells you it's fine\n" +
+                "He says that he's been training you harden than any of the other students because you showed potential\n" +
+                "But if that's how you feel then he'll train you even harden till you fell like you are\n" +
+                "He asks you again a time after and you agree");
+        new Decision(new Choice[]{yes, no});
     }
 }
 

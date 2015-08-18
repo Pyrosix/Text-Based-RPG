@@ -1,7 +1,10 @@
 package Overworld.Human;
 
-class BowHuman {
-    public BowHuman() {
+import Fantasy.Story;
+
+class BowHuman implements Story {
+    @Override
+    public void play() {
 
     }
 }

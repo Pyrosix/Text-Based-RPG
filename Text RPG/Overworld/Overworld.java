@@ -1,15 +1,13 @@
 package Overworld;
 
-import Overworld.Ezikiel.EzikielRoute;
-import Overworld.Foxend.FoxendRoute;
+import Fantasy.Choice;
+import Fantasy.Decision;
+import Fantasy.Story;
 import Overworld.Gombu.GombuRoute;
-import Overworld.Human.HumanRoute;
 
-import java.util.Scanner;
-
-public class Overworld {
-    public Overworld() {
-        Scanner scanner = new Scanner(System.in);
+public class Overworld implements Story {
+    @Override
+    public void play() {
         // TODO with large blocks of text like this, maybe put some Thread.wait(X) calls at pauses
         System.out.println("Walking up the pellucid steps a radiating light engulfs everything around you");
         System.out.println("As a familiar voice reaches out to you saying......");
@@ -34,26 +32,12 @@ public class Overworld {
         System.out.println("- Known for their extreme agile and stealthy movements, these beings are very hard to detect, and very lonely and untrusting ");
         System.out.println();
         System.out.println("'Who are you?' it asks... ");
-        String decision = scanner.nextLine();
-        System.out.println("~~~~~~~~");
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        // TODO these should be switch statements
-        if (decision.toLowerCase().equals("gombu")) {
-            new GombuRoute();
-        } else if (decision.toLowerCase().equals("ezikiel")) {
-            new EzikielRoute();
-        } else if (decision.toLowerCase().equals("human")) {
-            new HumanRoute();
-        } else if (decision.toLowerCase().equals("foxend")) {
-            new FoxendRoute();
-        } else {
-            System.out.println("Can't you even choose one of the choices your given?");
-            System.out.println("Just give up you worthless indecisive maggot unable to make simple choices");
-            System.out.println("Oh and here's a little something for you");
-            System.out.println("GAME OVER");
-        }
+
+        Choice gombu = new Choice("gombu", new GombuRoute());
+        Choice ezikiel = new Choice("ezikiel", new GombuRoute());
+        Choice human = new Choice("human", new GombuRoute());
+        Choice foxend = new Choice("foxend", new GombuRoute());
+        new Decision(new Choice[]{gombu, ezikiel, human, foxend});
     }
 }
     

@@ -1,9 +1,10 @@
 package Underworld.Human.Monster.WithPet.Mountain;
 
-import java.util.Scanner;
+import Fantasy.Story;
 
-public class Mountain {
-    public Mountain() {
-        Scanner scanner = new Scanner(System.in);
+public class Mountain implements Story {
+    @Override
+    public void play() {
+
     }
 }

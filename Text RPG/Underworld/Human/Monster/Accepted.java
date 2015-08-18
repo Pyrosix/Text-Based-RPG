@@ -1,12 +1,13 @@
 package Underworld.Human.Monster;
 
+import Fantasy.Choice;
+import Fantasy.Decision;
 import Fantasy.Player;
+import Fantasy.Story;
 
-import java.util.Scanner;
-
-class Accepted {
-    public Accepted() {
-        Scanner scanner = new Scanner(System.in);
+class Accepted implements Story {
+    @Override
+    public void play() {
         System.out.println("The man smiles at you and reaches out his hand to shake yours");
         System.out.println("He says it was the right decision not to trust him so easily and congratulates you for making it through the forest alive");
         System.out.println("He introduces himself as El'tuin the owner of the school");
@@ -28,32 +29,14 @@ class Accepted {
         System.out.println("He tells you that he is going to teach you how to use the sword strapped to your waist");
         System.out.println("He asks if you have any combat experience beforehand");
         System.out.println("Do you?");
-        System.out.print("Enter choice :: ");
-        String decision = scanner.nextLine();
-        System.out.println("~~~~~~~~");
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        if (decision.toLowerCase().equals("yes")) {
-            System.out.println("Sounding impressed, El'tuin charges at you wanting to test your skills");
-            System.out.println("You, not having any combat experience, are caught off guard by the sudden attack and are mortal wounded");
-            System.out.println("You stare up at the sky, blood flowing out of your wound as you lay on the ground, regretting your cocky decision....");
-            System.out.println("GAME OVER");
-        } else if (decision.toLowerCase().equals("no")) {
-            System.out.println("You tell him you have no previous combat experience");
-            System.out.println("El'Tuin laughs and tells you it's fine since he was planning to teach you his techniques even if you did");
-            new Training();
-        }
-        // How are you supposed to know this is an option?
-        else if (decision.toLowerCase().equals("idk")) {
-            System.out.println("You tell him that you don't know due to not remembering who you are");
-            System.out.println("El'Tuin laughs and tells you that it doesn't matter because he's going to teach you either way");
-            new Training();
-        } else {
-            System.out.println("Can't you even choose one of the choices your given?");
-            System.out.println("Just give up you maggot unable to follow directions");
-            System.out.println("Oh and here's a little something for you");
-            System.out.println("GAME OVER");
-        }
+
+        Choice yes = new Choice("yes", "Sounding impressed, El'tuin charges at you wanting to test your skills\n" +
+                "You, not having any combat experience, are caught off guard by the sudden attack and are mortal wounded\n" +
+                "You stare up at the sky, blood flowing out of your wound as you lay on the ground, regretting your cocky decision....");
+        Choice no = new Choice("no", new Training(), "You tell him you have no previous combat experience\n" +
+                "El'Tuin laughs and tells you it's fine since he was planning to teach you his techniques even if you did");
+        Choice idk = new Choice("idk", new Training(), "You tell him that you don't know due to not remembering who you are\n" +
+                "El'Tuin laughs and tells you that it doesn't matter because he's going to teach you either way");
+        new Decision(new Choice[]{yes, no, idk});
     }
 }

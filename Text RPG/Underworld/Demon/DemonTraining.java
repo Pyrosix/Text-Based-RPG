@@ -1,11 +1,12 @@
 package Underworld.Demon;
 
-import java.util.Scanner;
+import Fantasy.Choice;
+import Fantasy.Decision;
+import Fantasy.Story;
 
-class DemonTraining {
-
-    public DemonTraining() {
-        Scanner scanner = new Scanner(System.in);
+class DemonTraining implements Story {
+    @Override
+    public void play() {
         System.out.println("You open the left one and are surprised to see two swords, one short crossed over a longer one with draconic scale cloak inside the box");
         System.out.println("The black cloak shimmers brightly in the light from the scales, making it seem almost white");
         System.out.println("You look up at the lord and he nods in approval");
@@ -20,27 +21,13 @@ class DemonTraining {
         System.out.println("He opens the book and pulls out two pages holding them up in front of you");
         System.out.println("First he asks you if you are willing to sign a job contract before anything else");
         System.out.println("Will you?");
-        System.out.print("Enter Choice :: ");
-        String decision = scanner.nextLine();
-        System.out.println("~~~~~~~~");
-        if (decision.toLowerCase().equals("yes")) {
-            // Shouldn't this be in the demon contract?
-            System.out.println("The attendant nods in approval and says that you've made the right decision");
-            System.out.println("The demon then thanks you and explains the deal");
 
-            new DemonContract();
-        } else if (decision.toLowerCase().equals("no")) {
-            System.out.println("the demon looks at you with disgust, disapproving your waste of an opportunity");
-            System.out.println("You stand up and turn around as you are surrounded by a group of elite demons");
-            System.out.println("You have no time to react as they envelop you in a pillar of magical fire that melts you down into nothing in an instant");
-            System.out.println("The last thing you see is the bored look of the demon king as he stares at your disintegrating body with little interest");
-            System.out.println("GAME OVER");
-        } else {
-            System.out.println("Can't you even choose one of the choices your given?");
-            System.out.println("Just give up you worthless indecisive maggot unable to make simple choices");
-            System.out.println("Oh and here's a little something for you");
-            System.out.println("GAME OVER");
-        }
+        Choice yes = new Choice("yes", new DemonContract());
+        Choice no = new Choice("no", "The demon looks at you with disgust, disapproving your waste of an opportunity\n" +
+                "You stand up and turn around as you are surrounded by a group of elite demons\n" +
+                "You have no time to react as they envelop you in a pillar of magical fire that melts you down into nothing in an instant\n" +
+                "The last thing you see is the bored look of the demon king as he stares at your disintegrating body with little interest");
+        new Decision(new Choice[]{yes, no});
     }
 }
     

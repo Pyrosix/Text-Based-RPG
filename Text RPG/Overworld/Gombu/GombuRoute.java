@@ -1,7 +1,10 @@
 package Overworld.Gombu;
 
-public class GombuRoute {
-    public GombuRoute() {
+import Fantasy.Story;
+
+public class GombuRoute implements Story {
+    @Override
+    public void play() {
 
     }
 }

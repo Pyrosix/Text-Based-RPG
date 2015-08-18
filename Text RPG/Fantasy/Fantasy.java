@@ -22,21 +22,10 @@ public class Fantasy {
         System.out.println("Which way would you like to go?");
         System.out.println("DOWN the black stairs, filled with despair, which lead to the Underworld?");
         System.out.println("Or UP the white stairs, radiating hope, that lead to the Overworld?");
-        System.out.print("Enter choice :: ");
-        String decision = scanner.nextLine();
-        System.out.println("~~~~~~~~");
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        // TODO make a class for input validation that doesn't end the game when input is invalid
-        if (decision.toLowerCase().equals("down")) {
-            new Underworld();
-        } else if (decision.toLowerCase().equals("up")) {
-            new Overworld();
-        } else {
-            System.out.println("You were too confused to choose either way and missed your chance to go either way");
-            System.out.println("You watch in horror as both sets of stairs disappear, leaving you in complete nothingness with nowhere to go....");
-            System.out.println("GAME OVER");
-        }
+
+        Choice down = new Choice("down", new Underworld());
+        Choice up = new Choice("up", new Overworld());
+        new Decision(new Choice[]{down, up}, "You were too confused to choose either way and missed your chance to go either way\n" +
+                "You watch in horror as both sets of stairs disappear, leaving you in complete nothingness with nowhere to go....");
     }
 }

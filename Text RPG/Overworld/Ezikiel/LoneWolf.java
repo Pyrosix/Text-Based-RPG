@@ -1,7 +1,10 @@
 package Overworld.Ezikiel;
 
-class LoneWolf {
-    public LoneWolf() {
+import Fantasy.Story;
+
+class LoneWolf implements Story {
+    @Override
+    public void play() {
 
     }
 }

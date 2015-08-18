@@ -1,11 +1,10 @@
 package Underworld.Demon;
 
-import java.util.Scanner;
+import Fantasy.Story;
 
-class Infiltration {
-
-    public Infiltration() {
-        Scanner scanner = new Scanner(System.in);
+class Infiltration implements Story {
+    @Override
+    public void play() {
         System.out.println("Armed with your near weapons, as well as your rare draconic scale cloak, you depart from the castle of the demon lord");
         System.out.println("The lord had presented you with his seal of approval, allowing you to infiltrate the mansion of the demon noble you were charged with spying on");
         System.out.println("You look around for any signs of transportation that would help you get to your destination and are surprised to see none");
@@ -17,7 +16,5 @@ class Infiltration {
         System.out.println("You arrive at the mansion of the demon noble half an hour later, the sun starting to set behind the horizon");
         System.out.println("You look up at the tall black gate with a sense of foreboding");
         System.out.println("The gate opens eerily");
-        System.out.println();
-
     }
 }

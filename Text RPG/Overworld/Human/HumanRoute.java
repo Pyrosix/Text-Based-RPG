@@ -1,7 +1,10 @@
 package Overworld.Human;
 
-public class HumanRoute {
-    public HumanRoute() {
+import Fantasy.Story;
+
+public class HumanRoute implements Story {
+    @Override
+    public void play() {
 
     }
 }

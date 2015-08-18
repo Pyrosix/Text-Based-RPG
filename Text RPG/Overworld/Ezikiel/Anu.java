@@ -1,7 +1,10 @@
 package Overworld.Ezikiel;
 
-class Anu {
-    public Anu() {
+import Fantasy.Story;
+
+class Anu implements Story {
+    @Override
+    public void play() {
 
     }
 }

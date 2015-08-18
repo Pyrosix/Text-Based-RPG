@@ -1,11 +1,15 @@
 package Underworld.Demon;
 
-import java.util.Scanner;
+import Fantasy.Choice;
+import Fantasy.Decision;
+import Fantasy.Story;
 
-class DemonContract {
-
-    public DemonContract() {
-        Scanner scanner = new Scanner(System.in);
+class DemonContract implements Story {
+    @Override
+    public void play() {
+        System.out.println("The attendant nods in approval and says that you've made the right decision");
+        System.out.println("The demon then thanks you and explains the deal");
+        System.out.println();
         System.out.println("The first contract involves recovering some weapons and armor that were stolen by hi-goblins");
         System.out.println("He says that you will be rewarded with whatever you wish from the weapons you recover");
         System.out.println("The second contract requires complete stealth");
@@ -16,20 +20,9 @@ class DemonContract {
         System.out.println("Which contract will you choose?");
         System.out.println("The RECOVERY....?");
         System.out.println("Or the INFILTRATION....?");
-        System.out.print("Enter Choice :: ");
-        String decision = scanner.nextLine();
-        System.out.println("~~~~~~~~");
-        if (decision.toLowerCase().equals("recovery")) {
-            new WeaponRecovery();
-        } else if (decision.toLowerCase().equals("infiltration")) {
-            new Infiltration();
-        } else {
-            System.out.println("Can't you even choose one of the choices your given?");
-            System.out.println("Just give up you worthless indecisive maggot unable to make simple choices");
-            System.out.println("Oh and here's a little something for you");
-            System.out.println("GAME OVER");
-        }
+
+        Choice recovery = new Choice("recovery", new WeaponRecovery());
+        Choice infiltration = new Choice("infiltration", new Infiltration());
+        new Decision(new Choice[]{recovery, infiltration});
     }
-
-
 }

@@ -1,7 +1,10 @@
 package Overworld.Ezikiel;
 
-class Trainme {
-    public Trainme() {
+import Fantasy.Story;
+
+class Trainme implements Story {
+    @Override
+    public void play() {
 
     }
 }
