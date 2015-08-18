@@ -1,10 +1,7 @@
-
 package Overworld.Human;
 
 public class HumanRoute {
+    public HumanRoute() {
 
-    public void HumanRoute(){
-        
     }
-    
 }

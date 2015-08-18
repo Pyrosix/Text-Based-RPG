@@ -1,14 +1,10 @@
 package Underworld.Demon;
 
-
 import java.util.Scanner;
 
 public class DemonRoute {
-
-    public void DemonRoute(){
-        String right = "right";
-        String left = "left";
-        Scanner x = new Scanner(System.in);
+    public DemonRoute() {
+        Scanner scanner = new Scanner(System.in);
         System.out.println();
         System.out.println("Day One");
         System.out.println();
@@ -25,25 +21,21 @@ public class DemonRoute {
         System.out.println("The RIGHT one...?");
         System.out.println("Or the LEFT one...?");
         System.out.print("Enter Choice :: ");
-        String y = x.nextLine();
+        String direction = scanner.nextLine();
         System.out.println("~~~~~~~~");
-         if(y.equals(left)){
-             Demontraining d = new Demontraining();
-             d.Demontraining();
-        }
-         else if(y.equals(right)){
+        if (direction.toLowerCase().equals("left")) {
+            new DemonTraining();
+        } else if (direction.toLowerCase().equals("right")) {
             System.out.println("You open the right one slowly");
-            System.out.println("Flames hotter than anything you have ever experienced before burst out in a colemn");
+            System.out.println("Flames hotter than anything you have ever experienced before burst out in a column");
             System.out.println("you catch fire instantly and whither in pain, unable to put it out ");
             System.out.println("The screaming stops as your body turns to ash, swept up and thrown away without a second thought");
             System.out.println("GAME OVER");
-        }  
-         else{
-             System.out.println("Can't you even choose one of the choices your given?");
+        } else {
+            System.out.println("Can't you even choose one of the choices your given?");
             System.out.println("Just give up you worthless indecisive maggot unable to make simple choices");
             System.out.println("Oh and here's a little something for you");
             System.out.println("GAME OVER");
-         }
-         
+        }
     }
 }
