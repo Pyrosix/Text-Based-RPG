@@ -1,8 +1,8 @@
-package Overworld.Foxend;
+package Overworld.Ezikiel;
 
 import Fantasy.Story;
 
-public class FoxendRoute implements Story {
+class Anu implements Story {
     @Override
     public void play() {
 

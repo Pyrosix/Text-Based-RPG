@@ -1,14 +1,12 @@
 package Underworld.Demon;
 
+import Fantasy.Choice;
+import Fantasy.Decision;
+import Fantasy.Story;
 
-import java.util.Scanner;
-
-public class DemonRoute {
-
-    public void DemonRoute(){
-        String right = "right";
-        String left = "left";
-        Scanner x = new Scanner(System.in);
+public class DemonRoute implements Story {
+    @Override
+    public void play() {
         System.out.println();
         System.out.println("Day One");
         System.out.println();
@@ -24,26 +22,12 @@ public class DemonRoute {
         System.out.println("Which do you choose?");
         System.out.println("The RIGHT one...?");
         System.out.println("Or the LEFT one...?");
-        System.out.print("Enter Choice :: ");
-        String y = x.nextLine();
-        System.out.println("~~~~~~~~");
-         if(y.equals(left)){
-             Demontraining d = new Demontraining();
-             d.Demontraining();
-        }
-         else if(y.equals(right)){
-            System.out.println("You open the right one slowly");
-            System.out.println("Flames hotter than anything you have ever experienced before burst out in a colemn");
-            System.out.println("you catch fire instantly and whither in pain, unable to put it out ");
-            System.out.println("The screaming stops as your body turns to ash, swept up and thrown away without a second thought");
-            System.out.println("GAME OVER");
-        }  
-         else{
-             System.out.println("Can't you even choose one of the choices your given?");
-            System.out.println("Just give up you worthless indecisive maggot unable to make simple choices");
-            System.out.println("Oh and here's a little something for you");
-            System.out.println("GAME OVER");
-         }
-         
+
+        Choice left = new Choice("left", new DemonTraining());
+        Choice right = new Choice("right", "You open the right one slowly\n" +
+                "Flames hotter than anything you have ever experienced before burst out in a column\n" +
+                "you catch fire instantly and whither in pain, unable to put it out\n" +
+                "The screaming stops as your body turns to ash, swept up and thrown away without a second thought");
+        new Decision(new Choice[]{left, right});
     }
 }

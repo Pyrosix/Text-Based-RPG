@@ -1,8 +1,8 @@
-package Overworld.Foxend;
+package Destination;
 
 import Fantasy.Story;
 
-public class FoxendRoute implements Story {
+public class Destination implements Story {
     @Override
     public void play() {
 

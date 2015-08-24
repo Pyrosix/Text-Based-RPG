@@ -1,8 +1,8 @@
-package Overworld.Foxend;
+package Underworld.Demon;
 
 import Fantasy.Story;
 
-public class FoxendRoute implements Story {
+class WeaponRecovery implements Story {
     @Override
     public void play() {
 

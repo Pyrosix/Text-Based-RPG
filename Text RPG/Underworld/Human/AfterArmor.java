@@ -1,19 +1,18 @@
 package Underworld.Human;
 
-import Underworld.Human.bandit.safe;
-import Underworld.Human.monster.forest;
-import java.util.Scanner;
+import Fantasy.Choice;
+import Fantasy.Decision;
+import Fantasy.Story;
+import Underworld.Human.Bandit.Safe;
+import Underworld.Human.Monster.Forest;
 
-public class AfterArmor {
-    
-    public void AfterArmor(){
-        String safe = "safe";
-        String forest = "forest";
-        Scanner x = new Scanner(System.in);
-        System.out.println("You leave the shop and see a group of men out the corner of your eye unaware that they had been watching yout since you appeared");
+class AfterArmor implements Story {
+    @Override
+    public void play() {
+        System.out.println("You leave the shop and see a group of men out the corner of your eye unaware that they had been watching you since you appeared");
         System.out.println("After seeing you come out in Armor and with a weapon, they walk off not wanting to get involved with you");
         System.out.println("As you walk through the city, you grow tired and decide to stop at an inn");
-        System.out.println("The innkeeper sees you in your armor and guesses you are an important person since armor is exspensive");
+        System.out.println("The innkeeper sees you in your armor and guesses you are an important person since armor is expensive");
         System.out.println("He decides to let you stay for free, being extremely polite");
         System.out.println("You thank him and make your way to your designated room, falling asleep almost immediately after laying down");
         System.out.println();
@@ -30,25 +29,9 @@ public class AfterArmor {
         System.out.println("The right road goes into the forest filled with monsters, but will only take you a day to get through");
         System.out.println("Which way would you like to go?");
         System.out.println("The SAFE way or through the FOREST?");
-        System.out.print("Enter Choice :: ");
-        String l = x.nextLine();
-        System.out.println("~~~~~~~~");
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        if(l.equals(safe)){
-            safe s = new safe();
-            s.safe();
-        }
-        else if(l.equals(forest)){
-            forest f = new forest();
-            f.forest();
-        }
-        else{
-            System.out.println("Can't you even choose one of the choices your given?");
-            System.out.println("Just give up you maggot unable to follow directions");
-            System.out.println("Oh and here's a little something for you");
-            System.out.println("GAME OVER");
-        }
+
+        Choice safe = new Choice("safe", new Safe());
+        Choice forest = new Choice("forest", new Forest());
+        new Decision(new Choice[]{safe, forest});
     }
 }
